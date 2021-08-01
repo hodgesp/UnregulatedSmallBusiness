@@ -1,10 +1,6 @@
 ## Summary
 
-Terraform code to create your bad environment.
-
-## Bad Architecture
-
-![Design](../.github/img/tf-patrick19791-bad.png)
+Terraform code to create an insecure environment.
 
 ## Inputs
 
