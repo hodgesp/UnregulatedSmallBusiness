@@ -1,0 +1,158 @@
+# VM number 1
+
+resource "azurerm_resource_group" "demo" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+resource "azurerm_virtual_network" "demo" {
+  name                = "example-network"
+  address_space       = ["10.0.0.0/16"]
+  location            = "${azurerm_resource_group.demo.location}"
+  resource_group_name = "${azurerm_resource_group.demo.name}"
+}
+
+resource "azurerm_subnet" "subnet1" {
+  name                 = "internal"
+  resource_group_name  = "${azurerm_resource_group.demo.name}"
+  virtual_network_name = "${azurerm_virtual_network.demo.name}"
+  address_prefixes     = ["10.0.2.0/24"]
+}
+
+resource "azurerm_network_interface" "demo" {
+  name                = "example-nic"
+  location            = "${azurerm_resource_group.demo.location}"
+  resource_group_name = "${azurerm_resource_group.demo.name}"
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = "${azurerm_subnet.subnet1.id}"
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+resource "azurerm_linux_virtual_machine" "vm1" {
+  name                = "example-machine"
+  resource_group_name = "${azurerm_resource_group.demo.name}"
+  location            = "${azurerm_resource_group.demo.location}"
+  size                = "Standard_B2s"
+  admin_username      = "adminuser"
+  network_interface_ids = [
+    "${azurerm_network_interface.demo.id}",
+  ]
+
+  admin_ssh_key {
+    username   = "adminuser"#    public_key = file("~/.ssh/id_rsa.pub")
+  }
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
+    version   = "latest"
+  }
+}
+
+# VM number 2
+
+resource "azurerm_subnet" "subnet2" {
+  name                 = "internal"
+  resource_group_name  = "${azurerm_resource_group.demo.name}"
+  virtual_network_name = "${azurerm_virtual_network.demo.name}"
+  address_prefixes     = ["10.0.3.0/24"]
+}
+
+resource "azurerm_network_interface" "demo2" {
+  name                = "example-nic2"
+  location            = "${azurerm_resource_group.demo.location}"
+  resource_group_name = "${azurerm_resource_group.demo.name}"
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.subnet2.id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+resource "azurerm_linux_virtual_machine" "vm2" {
+  name                = "example-machine2"
+  resource_group_name = "${azurerm_resource_group.demo.name}"
+  location            = "${azurerm_resource_group.demo.location}"
+  size                = "Standard_B2s"
+  admin_username      = "adminuser"
+  network_interface_ids = [
+    "${azurerm_network_interface.demo2.id}",
+  ]
+
+  admin_ssh_key {
+    username   = "adminuser"
+#    public_key = file("~/.ssh/id_rsa.pub")
+  }
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
+    version   = "latest"
+  }
+}
+
+# VM number 3
+
+resource "azurerm_subnet" "subnet3" {
+  name                 = "internal"
+  resource_group_name  = "${azurerm_resource_group.demo.name}"
+  virtual_network_name = "${azurerm_virtual_network.demo.name}"
+  address_prefixes     = ["10.0.4.0/24"]
+}
+
+resource "azurerm_network_interface" "demo3" {
+  name                = "example-nic3"
+  location            = "${azurerm_resource_group.demo.location}"
+  resource_group_name = "${azurerm_resource_group.demo.name}"
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = "${azurerm_subnet.subnet3.id}"
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+resource "azurerm_linux_virtual_machine" "vm3" {
+  name                = "example-machine3"
+  resource_group_name = "${azurerm_resource_group.demo.name}"
+  location            = "${azurerm_resource_group.demo.location}"
+  size                = "Standard_B2s"
+  admin_username      = "adminuser"
+  network_interface_ids = [
+    "${azurerm_network_interface.demo3.id}",
+  ]
+
+  admin_ssh_key {
+    username   = "adminuser"
+#    public_key = file("~/.ssh/id_rsa.pub")
+  }
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
+    version   = "latest"
+  }
+}
+

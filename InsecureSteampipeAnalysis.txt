@@ -1,0 +1,134 @@
+CIS v1.4.0 ........................................................................................ 75 / 82 [==========]|
++ 1 Identity and Access Management ................................................................ 21 / 30 [====      ]| |
+| + 1.1 Maintain current contact details ..........................................................  0 /  1 [=         ]| | |
+| | INFO : Manual verification required. .................................................................. 503785734568| |
+| + 1.2 Ensure security contact information is registered .........................................  0 /  1 [=         ]| | |
+| | INFO : Manual verification required. .................................................................. 503785734568| |
+| + 1.3 Ensure security questions are registered in the AWS account ...............................  0 /  1 [=         ]| | |
+| | INFO : Manual verification required. .................................................................. 503785734568| |
+| + 1.4 Ensure no 'root' user account access key exists ...........................................  0 /  1 [=         ]| | |
+| | OK   : No root user access keys exist. ................................................................ 503785734568| |
+| + 1.5 Ensure MFA is enabled for the 'root' user account .........................................  1 /  1 [=         ]| | |
+| | ALARM: MFA not enabled for root account. .............................................................. 503785734568| |
+| + 1.6 Ensure hardware MFA is enabled for the 'root' user account ................................  1 /  1 [=         ]| | |
+| | ALARM: MFA not enabled for root account. .............................................................. 503785734568| |
+| + 1.7 Eliminate use of the 'root' user for administrative and daily tasks .......................  1 /  1 [=         ]| | |
+| | ERROR: No credential report was found. You can generate one with aws iam generate-credential-report
+| |
+| + 1.8 Ensure IAM password policy requires minimum length of 14 or greater .......................  1 /  1 [=         ]| | |
+| | ALARM: No password policy set. ........................................................................ 503785734568| |
+| + 1.9 Ensure IAM password policy prevents password reuse ........................................  1 /  1 [=         ]| | |
+| | ALARM: No password policy set. ........................................................................ 503785734568| |
+| + 1.10 Ensure multi-factor authentication (MFA) is enabled for all IAM users that have a console…  1 /  1 [=         ]| | |
+| | ERROR: No credential report was found. You can generate one with aws iam generate-credential-report
+| |
+| + 1.11 Do not setup access keys during initial user setup for all IAM users that have a console …  1 /  1 [=         ]| | |
+| | ERROR: No credential report was found. You can generate one with aws iam generate-credential-report
+| |
+| + 1.12 Ensure credentials unused for 45 days or greater are disabled ............................  1 /  1 [=         ]| | |
+| | ERROR: No credential report was found. You can generate one with aws iam generate-credential-report
+| |
+| + 1.13 Ensure there is only one active access key available for any single IAM user .............  0 /  1 [=         ]| | |
+| | OK   : adminuser has 1 active access keys. ............................................................ 503785734568| |
+| + 1.14 Ensure access keys are rotated every 90 days or less .....................................  0 /  1 [=         ]| | |
+| | OK   : adminuser AKIAXKS7YIGUKJYWGCNQ created 15-Jul-2021 (0 days). ................................... 503785734568| |
+| + 1.15 Ensure IAM Users Receive Permissions Only Through Groups .................................  0 /  1 [=         ]| | |
+| | OK   : adminuser has 0 inline and 0 directly attached policies. ....................................... 503785734568| |
+| + 1.16 Ensure IAM policies that allow full "*:*" administrative privileges are not attached .....  0 /  0 [          ]| | |
+| + 1.17 Ensure a support role has been created to manage incidents with AWS Support ..............  0 /  0 [          ]| | |
+| + 1.18 Ensure IAM instance roles are used for AWS resource access from instances ................  0 /  1 [=         ]| | |
+| | INFO : Manual verification required. .................................................................. 503785734568| |
+| + 1.19 Ensure that all the expired SSL/TLS certificates stored in AWS IAM are removed ...........  0 /  0 [          ]| | |
+| + 1.20 Ensure that IAM Access analyzer is enabled for all regions ............................... 17 / 17 [===       ]| | |
+| | ALARM: Access analyzer not enabled in eu-north-1. .......................................... eu-north-1 503785734568
+| | ALARM: Access analyzer not enabled in ap-south-1. .......................................... ap-south-1 503785734568
+| | ALARM: Access analyzer not enabled in eu-west-3. ............................................ eu-west-3 503785734568
+| | ALARM: Access analyzer not enabled in eu-west-2. ............................................ eu-west-2 503785734568
+| | ALARM: Access analyzer not enabled in ap-southeast-1. .................................. ap-southeast-1 503785734568
+| | ALARM: Access analyzer not enabled in ca-central-1. ...................................... ca-central-1 503785734568
+| | ALARM: Access analyzer not enabled in ap-northeast-2. .................................. ap-northeast-2 503785734568
+| | ALARM: Access analyzer not enabled in eu-central-1. ...................................... eu-central-1 503785734568
+| | ALARM: Access analyzer not enabled in us-east-1. ............................................ us-east-1 503785734568
+| | ALARM: Access analyzer not enabled in ap-southeast-2. .................................. ap-southeast-2 503785734568
+| | ALARM: Access analyzer not enabled in us-west-1. ............................................ us-west-1 503785734568
+| | ALARM: Access analyzer not enabled in sa-east-1. ............................................ sa-east-1 503785734568
+| | ALARM: Access analyzer not enabled in ap-northeast-1. .................................. ap-northeast-1 503785734568
+| | ALARM: Access analyzer not enabled in us-east-2. ............................................ us-east-2 503785734568
+| | ALARM: Access analyzer not enabled in us-west-2. ............................................ us-west-2 503785734568
+| | ALARM: Access analyzer not enabled in eu-west-1. ............................................ eu-west-1 503785734568
+| | ALARM: Access analyzer not enabled in ap-northeast-3. .................................. ap-northeast-3 503785734568| |
+| + 1.21 Ensure IAM users are managed centrally via identity federation or AWS Organizations for m…  0 /  1 [=         ]|   |
+|   INFO : Manual verification required. .................................................................. 503785734568|
++ 2 Storage .......................................................................................  6 /  8 [==        ]| |
+| + 2.1 Simple Storage Service (S3) ...............................................................  3 /  5 [==        ]| | |
+| | + 2.1.1 Ensure all S3 buckets employ encryption-at-rest .......................................  1 /  1 [=         ]| | | |
+| | | ALARM: storage-buckets-vkqtn default encryption disabled. .................................. us-east-1 503785734568| | |
+| | + 2.1.2 Ensure S3 Bucket Policy is set to deny HTTP requests ..................................  1 /  1 [=         ]| | | |
+| | | ALARM: storage-buckets-vkqtn bucket policy does not enforce HTTPS. ........................ us-east-1 503785734568| | |
+| | + 2.1.3 Ensure MFA Delete is enable on S3 buckets .............................................  1 /  1 [=         ]| | | |
+| | | ALARM: storage-buckets-vkqtn MFA delete disabled. ......................................... us-east-1 503785734568| | |
+| | + 2.1.4 Ensure all data in Amazon S3 has been discovered, classified and secured when required   0 /  1 [=         ]| | | |
+| | | INFO : Manual verification required. ................................................................ 503785734568| | |
+| | + 2.1.5 Ensure that S3 Buckets are configured with 'Block public access (bucket settings)' ....  1 /  1 [=         ]| |   |
+| |   ALARM: storage-buckets-vkqtn not enabled for: block_public_acls, block_public_policy, igno… us-east-1 503785734568| |
+| + 2.2 Elastic Compute Cloud (EC2) ...............................................................  3 /  3 [=         ]| | |
+| | + 2.2.1 Ensure EBS volume encryption is enabled ...............................................  3 /  3 [=         ]| |   |
+| |   ALARM: vol-098627631484d8ddd not encrypted. ............................................... us-east-1 503785734568| |   ALARM: vol-03f677f8846e0858c not encrypted. ............................................... us-east-1 503785734568| |   ALARM: vol-0b50468d0302728e1 not encrypted. ............................................... us-east-1 503785734568| |
+| + 2.3 Relational Database Service (RDS) .........................................................  0 /  0 [          ]|   |
+|   + 2.3.1 Ensure that encryption is enabled for RDS Instances ...................................  0 /  0 [          ]|     |
++ 3 Logging ....................................................................................... 24 / 24 [===       ]| |
+| + 3.1 Ensure CloudTrail is enabled in all regions ...............................................  0 /  0 [          ]| | |
+| + 3.2 Ensure CloudTrail log file validation is enabled ..........................................  0 /  0 [          ]| | |
+| + 3.3 Ensure the S3 bucket used to store CloudTrail logs is not publicly accessible .............  0 /  0 [          ]| | |
+| + 3.4 Ensure CloudTrail trails are integrated with CloudWatch Logs ..............................  0 /  0 [          ]| | |
+| + 3.5 Ensure AWS Config is enabled in all regions ............................................... 21 / 21 [===       ]| | |
+| | ALARM: af-south-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording dis… af-south-1 503785734568| | ALARM: eu-north-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording dis… eu-north-1 503785734568| | ALARM: me-south-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording dis… me-south-1 503785734568| | ALARM: sa-east-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording disab… sa-east-1 503785734568| | ALARM: ap-south-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording dis… ap-south-1 503785734568| | ALARM: eu-west-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording disab… eu-west-1 503785734568| | ALARM: ap-northeast-2 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recor… ap-northeast-2 503785734568| | ALARM: eu-west-3 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording disab… eu-west-3 503785734568| | ALARM: eu-south-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording dis… eu-south-1 503785734568| | ALARM: ap-northeast-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recor… ap-northeast-1 503785734568| | ALARM: eu-central-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording… eu-central-1 503785734568| | ALARM: ap-northeast-3 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recor… ap-northeast-3 503785734568| | ALARM: eu-west-2 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording disab… eu-west-2 503785734568| | ALARM: us-west-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording disab… us-west-1 503785734568| | ALARM: us-east-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording disab… us-east-1 503785734568| | ALARM: us-east-2 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording disab… us-east-2 503785734568| | ALARM: ap-east-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording disab… ap-east-1 503785734568| | ALARM: us-west-2 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording disab… us-west-2 503785734568| | ALARM: ap-southeast-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recor… ap-southeast-1 503785734568| | ALARM: ap-southeast-2 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recor… ap-southeast-2 503785734568| | ALARM: ca-central-1 IncludeGlobalResourceTypes disabled, AllSupported disabled, Recording… ca-central-1 503785734568| |
+| + 3.6 Ensure S3 bucket access logging is enabled on the CloudTrail S3 bucket ....................  0 /  0 [          ]| | |
+| + 3.7 Ensure CloudTrail logs are encrypted at rest using KMS CMKs ...............................  0 /  0 [          ]| | |
+| + 3.8 Ensure rotation for customer created CMKs is enabled ......................................  0 /  0 [          ]| | |
+| + 3.9 Ensure VPC flow logging is enabled in all VPCs ............................................  1 /  1 [=         ]| | |
+| | ALARM: vpc-23d7ba5e flow logging disabled. .................................................. us-east-1 503785734568| |
+| + 3.10 Ensure that Object-level logging for write events is enabled for S3 bucket ...............  1 /  1 [=         ]| | |
+| | ALARM: storage-buckets-vkqtn object-level write events logging disabled. .................... us-east-1 503785734568| |
+| + 3.11 Ensure that Object-level logging for read events is enabled for S3 bucket ................  1 /  1 [=         ]|   |
+|   ALARM: storage-buckets-vkqtn object-level read events logging disabled. ..................... us-east-1 503785734568|
++ 4 Monitoring .................................................................................... 15 / 15 [==        ]| |
+| + 4.1 Ensure a log metric filter and alarm exist for unauthorized API calls .....................  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for unauthorized API calls. ............................... 503785734568| |
+| + 4.2 Ensure a log metric filter and alarm exist for Management Console sign-in without MFA .....  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for console sign-in without MFA. .......................... 503785734568| |
+| + 4.3 Ensure a log metric filter and alarm exist for usage of 'root' account ....................  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for usage of "root" account. .............................. 503785734568| |
+| + 4.4 Ensure a log metric filter and alarm exist for IAM policy changes .........................  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for IAM policy changes. ................................... 503785734568| |
+| + 4.5 Ensure a log metric filter and alarm exist for CloudTrail configuration changes ...........  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for CloudTrail configuration changes. ..................... 503785734568| |
+| + 4.6 Ensure a log metric filter and alarm exist for AWS Management Console authentication failu…  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for console authentication failures. ...................... 503785734568| |
+| + 4.7 Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer…  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for disabling/deletion of CMKs. ........................... 503785734568| |
+| + 4.8 Ensure a log metric filter and alarm exist for S3 bucket policy changes ...................  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for S3 bucket policy changes. ............................. 503785734568| |
+| + 4.9 Ensure a log metric filter and alarm exist for AWS Config configuration changes ...........  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for AWS Config configuration changes. ..................... 503785734568| |
+| + 4.10 Ensure a log metric filter and alarm exist for security group changes ....................  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for security group changes. ............................... 503785734568| |
+| + 4.11 Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (N…  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for changes to NACLs. ..................................... 503785734568| |
+| + 4.12 Ensure a log metric filter and alarm exist for changes to network gateways ...............  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for changes to network gateways. .......................... 503785734568| |
+| + 4.13 Ensure a log metric filter and alarm exist for route table changes .......................  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for route table changes. .................................. 503785734568| |
+| + 4.14 Ensure a log metric filter and alarm exist for VPC changes ...............................  1 /  1 [=         ]| | |
+| | ALARM: No log metric filter and alarm exist for VPC changes. .......................................... 503785734568| |
+| + 4.15 Ensure a log metric filter and alarm exists for AWS Organizations changes ................  1 /  1 [=         ]|   |
+|   ALARM: No log metric filter and alarm exists for AWS Organizations changes. ........................... 503785734568|
++ 5 Networking ....................................................................................  2 /  5 [==        ]  |
+  + 5.1 Ensure no Network ACLs allow ingress from 0.0.0.0/0 to remote server administration ports .  1 /  1 [=         ]  | |
+  | ALARM: acl-a6be69da contains 1 rule(s) allowing ingress to port 22 or 3389 from 0.0.0.0/0 or… us-east-1 503785734568  |
+  + 5.2 Ensure no security groups allow ingress from 0.0.0.0/0 to remote server administration por…  0 /  2 [=         ]  | |
+  | OK   : sg-09bc0b279130643a6 does not allow ingress to port 22 or 3389 from 0.0.0.0/0 or ::/0. us-east-1 503785734568  | OK   : sg-e44940fe does not allow ingress to port 22 or 3389 from 0.0.0.0/0 or ::/0. ........ us-east-1 503785734568  |
+  + 5.3 Ensure the default security group of every VPC restricts all traffic ......................  1 /  1 [=         ]  | |
+  | ALARM: Default security group sg-e44940fe has inbound and outbound rules. ................... us-east-1 503785734568  |
+  + 5.4 Ensure routing tables for VPC peering are "least access" ..................................  0 /  1 [=         ]    |
+    INFO : Manual verification required. .................................................................. 503785734568
