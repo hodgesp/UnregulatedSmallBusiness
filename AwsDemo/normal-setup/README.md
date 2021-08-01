@@ -1,10 +1,6 @@
 ## Summary
 
-Terraform code to create your normal environment.
-
-## Normal Architecture (Good)
-
-![Design](../.github/img/tf-patrick19791-bad.png)
+Terraform code to create a secured environment.
 
 ## Inputs
 
